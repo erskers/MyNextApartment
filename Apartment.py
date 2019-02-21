@@ -1,14 +1,22 @@
 class Apartment:
     address = ""
-    askedPrice = 0
-    size = 0
+    price = 0
+    size = ""
+    city = ""
+    rooms = ""
+    info = ""
     rent = 0
 
-    def __init__(self, address, askedPrice, size, rent):
+    def __init__(self, address, price, size, rent, city, rooms, info):
         self.address = address
-        self.askedPrice = askedPrice
+        self.price = price
         self.size = size
         self.rent = rent
+        self.city = city
+        self.rooms = rooms
+        self.info = info
+
+
 
 
 
