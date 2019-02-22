@@ -9,8 +9,7 @@ class Scraper:
 
     def __init__(self, url):
         raw_listings = scrape_site(url)
-        apartments = parse_apartments(raw_listings)
-        print len(apartments)
+        self.apartments = parse_apartments(raw_listings)
 
 
 def scrape_site(url):
@@ -46,13 +45,10 @@ def parse_apartments(raw_listings):
         address = items[0]
         city = items[1]
         price = int(items[2].replace(u'\xa0', '').replace('kr', ''))
-        print price
         size = items[3]
         rooms = items[4]
         rent = int(items[5].replace(u'kr/mån', '').replace(u'\xa0', ''))
-        print rent
         info = items[7]
         apartment = Apartment(address, price, size, rent, city, rooms, info)
-        print apartment.address
         apartments.append(apartment)
     return apartments
